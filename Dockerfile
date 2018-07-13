@@ -88,7 +88,8 @@ COPY watchdog.sh /etc/service/watchdog/run
 
 VOLUME ["/opt/dnscrypt-wrapper/etc/keys"]
 
-EXPOSE 443/udp 443/tcp
+ENV DNSCRYPT_PORT 443
+EXPOSE $DNSCRYPT_PORT/udp $DNSCRYPT_PORT/tcp
 
 CMD ["/sbin/start_runit"]
 
